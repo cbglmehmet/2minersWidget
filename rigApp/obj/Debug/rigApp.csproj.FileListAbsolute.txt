@@ -33,3 +33,8 @@ C:\Users\mehmetcbgl\Desktop\rig\rigApp\rigApp\obj\Debug\rigApp.csproj.CopyComple
 C:\Users\mehmetcbgl\Desktop\rig\rigApp\rigApp\obj\Debug\rigApp.exe
 C:\Users\mehmetcbgl\Desktop\rig\rigApp\rigApp\obj\Debug\rigApp.pdb
 C:\Users\mehmetcbgl\Desktop\rig\rigApp\rigApp\obj\Debug\rigApp.csprojAssemblyReference.cache
+C:\Users\mcabaoglu\Desktop\UI\work\rig\rigApp\rigApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mcabaoglu\Desktop\UI\work\rig\rigApp\rigApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mcabaoglu\Desktop\UI\work\rig\rigApp\rigApp\obj\Debug\assets\style\mainStyle.baml
+C:\Users\mcabaoglu\Desktop\UI\work\rig\rigApp\rigApp\obj\Debug\App.baml
+C:\Users\mcabaoglu\Desktop\UI\work\rig\rigApp\rigApp\obj\Debug\rigApp.csproj.CopyComplete

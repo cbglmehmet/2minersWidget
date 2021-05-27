@@ -116,10 +116,10 @@
             </Grid>
 
 
-            <Canvas x:Name="cnvsSettings" Width="160" Height="40" VerticalAlignment="Bottom">
+            <Canvas x:Name="cnvsSettings" Width="110" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center">
                 <Grid>
-                    <Label  Content="Sürekli ekranın üzerinde dur"  Foreground="#fff"  Style="{StaticResource playR}" ></Label>
-                    <CheckBox Name="screenStatus" Style="{DynamicResource SliderCheckBox}" Margin="60,20,0,0" Click="screenStatus_Click" />
+                    <Label  Content="Stay on the screen."  Foreground="#fff"  Style="{StaticResource playR}" ></Label>
+                    <CheckBox Width="35" Name="screenStatus" Style="{DynamicResource SliderCheckBox}" Margin="0,20,0,0" Click="screenStatus_Click" />
                 </Grid>
             </Canvas>
             <Canvas Name="cnvsClose" Width="20" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="3">
