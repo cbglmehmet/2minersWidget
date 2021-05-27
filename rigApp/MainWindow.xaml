@@ -1,0 +1,133 @@
+﻿<Window x:Class="rigApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rigApp"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Name="page"
+        Title="MainWindow" Height="120" Width="200" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="Manual" MouseDown="Window_MouseDown" Closing="page_Closing" > 
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
+    <Canvas>
+        <Grid Background="Black" Opacity="0.5" Width="{Binding ActualWidth, ElementName=page}" Height="{Binding ActualHeight, ElementName=page}">
+        </Grid>
+
+        <Grid Width="{Binding ActualWidth, ElementName=page}" Height="{Binding ActualHeight, ElementName=page}"  Name="wallet1Detail">
+            <Grid Height="75" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.7*" />
+                    <ColumnDefinition Width=".25*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height=".1*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Worker name" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content="Hashrate" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content="Avarage Hashrate" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="3" Grid.Column="0" Content="Unconfirmed Balance" Foreground="White"  Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="4" Grid.Column="0" Content="Unpaid Balance" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="5" Grid.ColumnSpan="3" Background="#fff" Width="{Binding ActualWidth, ElementName=page}" Height="2" VerticalAlignment="Top"></Label>
+
+                <Label Grid.Row="0" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+
+                <Label Name="wallet1WorkerName" Grid.Row="0" Grid.Column="2" Content="offline" Foreground="Red" Padding="0" Margin="0" VerticalAlignment="Center"  HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet1CurrentHash" Grid.Row="1" Grid.Column="2" Content="0 M" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet1AvarageHash" Grid.Row="2" Grid.Column="2" Content="0 M" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet1Unconfirmed" Grid.Row="3" Grid.Column="2" Content="0" Foreground="White"  Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet1Unpaid" Grid.Row="4" Grid.Column="2" Content="0" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+            </Grid>
+            <Grid Height="75" VerticalAlignment="Center" Margin="0,-37,0,0" Name="wallet2Detail" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.7*" />
+                    <ColumnDefinition Width=".25*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height=".1*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Worker name" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content="Hashrate" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content="Avarage Hashrate" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="3" Grid.Column="0" Content="Unconfirmed Balance" Foreground="White"  Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="4" Grid.Column="0" Content="Unpaid Balance" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="5" Grid.ColumnSpan="3" Background="#fff" Width="{Binding ActualWidth, ElementName=page}" Height="2" VerticalAlignment="Top"></Label>
+
+                <Label Grid.Row="0" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+
+                <Label Name="wallet2WorkerName" Grid.Row="0" Grid.Column="2" Content="offline" Foreground="Red" Padding="0" Margin="0" VerticalAlignment="Center"  HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet2CurrentHash" Grid.Row="1" Grid.Column="2" Content="0 M" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet2AvarageHash" Grid.Row="2" Grid.Column="2" Content="0 M" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet2Unconfirmed" Grid.Row="3" Grid.Column="2" Content="0" Foreground="White"  Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet2Unpaid" Grid.Row="4" Grid.Column="2" Content="0" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+
+            </Grid>
+            <Grid Height="75" VerticalAlignment="Bottom" Margin="0,0,0,37" Name="wallet3Detail" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.7*" />
+                    <ColumnDefinition Width=".25*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height=".1*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Worker name" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Content="Hashrate" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Content="Avarage Hashrate" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="3" Grid.Column="0" Content="Unconfirmed Balance" Foreground="White"  Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="4" Grid.Column="0" Content="Unpaid Balance" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="5" Grid.ColumnSpan="3" Background="#fff" Width="{Binding ActualWidth, ElementName=page}" Height="2" VerticalAlignment="Top"></Label>
+
+                <Label Grid.Row="0" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Grid.Row="3" Grid.Column="1" Foreground="White" Content=" = " Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+
+                <Label Name="wallet3WorkerName" Grid.Row="0" Grid.Column="2" Content="offline" Foreground="Red" Padding="0" Margin="0" VerticalAlignment="Center"  HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet3CurrentHash" Grid.Row="1" Grid.Column="2" Content="0 M" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet3AvarageHash" Grid.Row="2" Grid.Column="2" Content="0 M" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet3Unconfirmed" Grid.Row="3" Grid.Column="2" Content="0" Foreground="White"  Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+                <Label Name="wallet3Unpaid" Grid.Row="4" Grid.Column="2" Content="0" Foreground="White" Padding="0" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource playR}"></Label>
+
+            </Grid>
+
+
+            <Canvas x:Name="cnvsSettings" Width="160" Height="40" VerticalAlignment="Bottom">
+                <Grid>
+                    <Label  Content="Sürekli ekranın üzerinde dur"  Foreground="#fff"  Style="{StaticResource playR}" ></Label>
+                    <CheckBox Name="screenStatus" Style="{DynamicResource SliderCheckBox}" Margin="60,20,0,0" Click="screenStatus_Click" />
+                </Grid>
+            </Canvas>
+            <Canvas Name="cnvsClose" Width="20" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="3">
+                <Image Name="btnExit" Source="assets/img/exit.png" PreviewMouseDown="btnExit_PreviewMouseDown" ></Image>
+                
+            </Canvas>
+        </Grid>
+       
+    </Canvas>
+    
+</Window>
