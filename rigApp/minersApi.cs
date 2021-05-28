@@ -12,6 +12,10 @@ namespace rigApp
 {
     class minersApi
     {
+        public float ethUSDT = 0;
+        
+
+
         public int walletCount = 0;
         public string workerName1 = string.Empty;
         public string workerName2 = string.Empty;
@@ -35,23 +39,40 @@ namespace rigApp
         private string walletFile = "config.txt";
         private string[] walletID;
         private string url = "https://eth.2miners.com/api/accounts/";
+        private string binanceURL = "https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT";
         private WebClient webClient;
+        private WebClient binanceClient;
         private string incomingJsonData;
+        private string binanceIncomingJsonData;
         private string readingName;
         Root datas;
+        binance binance;
+        public float getETHUSDT()
+        {
+            binanceIncomingJsonData = binanceClient.DownloadString(binanceURL);
+            binance = JsonConvert.DeserializeObject<binance>(binanceIncomingJsonData);
+
+            ethUSDT = binance.price;
+
+            return ethUSDT;
+        }
         public void start()
         {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             readWalletID();
             webClient = new WebClient();
+            binanceClient = new WebClient();
         }
+
+        
 
         public void update()
         {
             for (int i = 0; i < walletID.Length; i++)
             {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                
                 
                 incomingJsonData = webClient.DownloadString(url + walletID[i]);
                 datas = JsonConvert.DeserializeObject<Root>(incomingJsonData);

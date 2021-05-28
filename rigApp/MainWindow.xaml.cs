@@ -22,6 +22,7 @@ namespace rigApp
     public partial class MainWindow : Window
     {
         minersApi api = new minersApi();
+        Thread binance;
         Thread apiThread;
 
         private bool applicationStatus = true;
@@ -47,6 +48,9 @@ namespace rigApp
             apiThread = new Thread(new ThreadStart(apiThread_DoWork));
             apiThread.Start();
 
+            binance = new Thread(new ThreadStart(binance_DoWork)) ;
+            binance.Start();
+
             api.start();
             if(api.walletCount>3)
             {
@@ -62,7 +66,18 @@ namespace rigApp
             page.Top = System.Windows.SystemParameters.WorkArea.Height - page.Height - 25;
 
         }
-
+        private void binance_DoWork()
+        {
+            do
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    lblETH.Content = "ETH/USDT : " + api.getETHUSDT().ToString("0.##");
+                });
+                
+                Thread.Sleep(200);
+            } while (applicationStatus);
+        }
         private void reDesign(int walletCount)
         {
             switch (walletCount)
@@ -70,19 +85,22 @@ namespace rigApp
                 case 1:
                     wallet2Detail.Visibility = Visibility.Hidden;
                     wallet3Detail.Visibility = Visibility.Hidden;
-                    page.Height = 120;
+                    page.Height = 140;
                     break;
                 case 2:
                     wallet2Detail.VerticalAlignment = VerticalAlignment.Bottom;
                     wallet2Detail.Margin = new Thickness(0,0,0,40);
-                    page.Height = 190;
+                    page.Height = 210;
                     wallet2Detail.Visibility = Visibility.Visible;
                     wallet3Detail.Visibility = Visibility.Hidden;
                     break;
                 case 3:
+                    wallet1Detail.Margin=new Thickness(0,20,0,0);
                     wallet2Detail.Visibility = Visibility.Visible;
+                    wallet2Detail.Margin = new Thickness(0, 0, 0,15);
+                    wallet3Detail.Margin = new Thickness(0,0,0,35);
                     wallet3Detail.Visibility = Visibility.Visible;
-                    page.Height = 260;
+                    page.Height = 280;
                     break;
                 default:
                     break;

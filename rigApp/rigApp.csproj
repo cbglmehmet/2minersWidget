@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="api\binance.cs" />
     <Compile Include="api\Payment.cs" />
     <Compile Include="api\Reward.cs" />
     <Compile Include="api\Root.cs" />
