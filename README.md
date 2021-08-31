@@ -3,7 +3,9 @@ If you are tired of constantly opening a browser, this **widget** is for you.
 
 # How to use?
 1- Open config.txt.
+
 2- Enter your wallet address and save.
+
 3- Run "rigApp.exe"
 ## Supported Pool
 for now only
